@@ -1,0 +1,21 @@
+# MailSort — runtime dependencies
+# Compatible with Python >= 3.10
+
+# OpenEnv core framework (optional — fallback used if not available)
+openenv-core>=0.2.3; python_version >= "3.10"
+
+# Web framework & ASGI server
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+
+# Data validation
+pydantic>=2.0.0
+
+# WebSocket support (required by openenv-core)
+websockets>=15.0.1
+
+# Async HTTP client (used by fallback client.py)
+httpx>=0.25.0
+
+# Inference script — OpenAI client
+openai>=1.0.0

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "mailsort-env"
+version = "1.0.0"
+description = "MailSort — Enterprise Email Triage OpenEnv Environment"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["openenv", "email", "triage", "rl", "environment"]
+dependencies = [
+    "openenv-core>=0.2.3",
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.0.0",
+    "websockets>=15.0.1",
+    "httpx>=0.25.0",
+    "openai>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "httpx>=0.25.0"]
+
+[project.scripts]
+server = "server.app:main"
+mailsort-env = "server.app:main"
+serve = "server.app:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["server*"]
+
+[tool.openenv]
+name = "mailsort-env"
+entry_point = "server.app:app"
+port = 7860
